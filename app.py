@@ -450,6 +450,46 @@ def delete_member(member_id):
     
     return jsonify({'success': True, 'message': f'Member {member["name"]} deleted'})
 
+@app.route('/api/admin/leaderboard/weekly/<int:member_id>', methods=['DELETE'])
+@require_auth
+def delete_weekly_entry(member_id):
+    week_start = get_week_start()
+    conn = get_db()
+    c = conn.cursor()
+    
+    c.execute('SELECT * FROM weekly_leaderboard WHERE member_id = ? AND week_start = ?', (member_id, week_start))
+    if not c.fetchone():
+        conn.close()
+        return jsonify({'success': False, 'error': 'Entry not found'}), 404
+    
+    c.execute('DELETE FROM weekly_leaderboard WHERE member_id = ? AND week_start = ?', (member_id, week_start))
+    conn.commit()
+    conn.close()
+    
+    log_action('DELETE_WEEKLY', f'Deleted weekly stats for member ID {member_id}')
+    return jsonify({'success': True, 'message': 'Weekly leaderboard entry deleted'})
+
+
+
+@app.route('/api/admin/leaderboard/monthly/<int:member_id>', methods=['DELETE'])
+@require_auth
+def delete_monthly_entry(member_id):
+    month_year = get_month_year()
+    conn = get_db()
+    c = conn.cursor()
+    
+    c.execute('SELECT * FROM monthly_leaderboard WHERE member_id = ? AND month_year = ?', (member_id, month_year))
+    if not c.fetchone():
+        conn.close()
+        return jsonify({'success': False, 'error': 'Entry not found'}), 404
+    
+    c.execute('DELETE FROM monthly_leaderboard WHERE member_id = ? AND month_year = ?', (member_id, month_year))
+    conn.commit()
+    conn.close()
+    
+    log_action('DELETE_MONTHLY', f'Deleted monthly stats for member ID {member_id}')
+    return jsonify({'success': True, 'message': 'Monthly leaderboard entry deleted'})
+
 if __name__ == '__main__':
     init_db()
     print("=" * 60)

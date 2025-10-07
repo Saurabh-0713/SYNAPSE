@@ -47,6 +47,34 @@ fetch('http://localhost:5001/api/auth/login', {
 .then(res => res.json())
 .then(data => console.log('Login Response:', data));
 
+//delete member
+fetch('http://localhost:5001/api/admin/members/1', {  // replace 1 with the member ID
+  method: 'DELETE',
+  credentials: 'include',  // must match login
+  headers: { 'Content-Type': 'application/json' }
+})
+.then(res => res.json())
+.then(data => console.log('Delete Response:', data));
+
+
+// Delete weekly entry
+fetch('http://localhost:5001/api/admin/leaderboard/weekly/1', { 
+  method: 'DELETE',
+  headers: { 'Content-Type': 'application/json' },
+  credentials: 'include'
+})
+.then(res => res.json())
+.then(data => console.log('Delete Weekly Response:', data));
+
+// Delete monthly entry
+fetch('http://localhost:5001/api/admin/leaderboard/monthly/1', { 
+  method: 'DELETE',
+  headers: { 'Content-Type': 'application/json' },
+  credentials: 'include'
+})
+.then(res => res.json())
+.then(data => console.log('Delete Monthly Response:', data));
+
 
 // Add a new member
 // Requires admin login first
