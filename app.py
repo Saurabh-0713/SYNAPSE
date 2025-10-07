@@ -421,6 +421,35 @@ def health():
         'timestamp': datetime.now().isoformat()
     })
 
+@app.route('/api/admin/members/<int:member_id>', methods=['DELETE'])
+@require_auth
+def delete_member(member_id):
+    """Delete a member from the system"""
+    conn = get_db()
+    c = conn.cursor()
+    
+    # Get member details
+    member = c.execute('SELECT name FROM members WHERE id = ?', (member_id,)).fetchone()
+    if not member:
+        conn.close()
+        return jsonify({'success': False, 'error': 'Member not found'}), 404
+    
+    # Delete from weekly leaderboard
+    c.execute('DELETE FROM weekly_leaderboard WHERE member_id = ?', (member_id,))
+    
+    # Delete from monthly leaderboard
+    c.execute('DELETE FROM monthly_leaderboard WHERE member_id = ?', (member_id,))
+    
+    # Delete from members table
+    c.execute('DELETE FROM members WHERE id = ?', (member_id,))
+    
+    conn.commit()
+    conn.close()
+    
+    log_action('DELETE_MEMBER', f'Deleted member: {member["name"]} (ID: {member_id})')
+    
+    return jsonify({'success': True, 'message': f'Member {member["name"]} deleted'})
+
 if __name__ == '__main__':
     init_db()
     print("=" * 60)
