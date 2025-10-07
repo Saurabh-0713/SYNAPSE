@@ -1,0 +1,112 @@
+// =================== PUBLIC FETCHES ===================
+
+// Weekly Leaderboard
+
+fetch('http://localhost:5001/api/leaderboard/weekly')
+  .then(res => res.json())
+  .then(data => console.log('Weekly Leaderboard:', data));
+
+// Monthly Leaderboard
+
+fetch('http://localhost:5001/api/leaderboard/monthly')
+  .then(res => res.json())
+  .then(data => console.log('Monthly Leaderboard:', data));
+
+// All Members
+
+fetch('http://localhost:5001/api/members')
+  .then(res => res.json())
+  .then(data => console.log('All Members:', data));
+
+// Health Check
+
+fetch('http://localhost:5001/api/health')
+  .then(res => res.json())
+  .then(data => console.log('Health Check:', data));
+
+// Auth Status
+
+fetch('http://localhost:5001/api/auth/status', { credentials: 'include' })
+  .then(res => res.json())
+  .then(data => console.log('Auth Status:', data));
+
+
+// =================== AUTHENTICATED ADMIN FETCHES ===================
+
+// Admin Login
+// Replace username/password as needed
+fetch('http://localhost:5001/api/auth/login', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  credentials: 'include', // important for session
+  body: JSON.stringify({
+    username: 'admin',
+    password: 'synapse2024'
+  })
+})
+.then(res => res.json())
+.then(data => console.log('Login Response:', data));
+
+
+// Add a new member
+// Requires admin login first
+
+
+fetch('http://localhost:5001/api/admin/members', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  credentials: 'include',
+  body: JSON.stringify({
+    name: 'John Doe',
+    avatar: 'https://ui-avatars.com/api/?name=John+Doe&background=ff642c&color=fff&size=200'
+  })
+})
+.then(res => res.json())
+.then(data => console.log('Add Member Response:', data));
+
+
+// Update Weekly Leaderboard
+// Requires admin login first
+
+
+fetch('http://localhost:5001/api/admin/leaderboard/weekly/update', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  credentials: 'include',
+  body: JSON.stringify({
+    member_id: 1, // change to the member ID you want
+    sessions_attended: 5,
+    assessments_submitted: 2,
+    bonus_points: 10
+  })
+})
+.then(res => res.json())
+.then(data => console.log('Update Weekly Leaderboard:', data));
+
+
+// Update Monthly Leaderboard
+// Requires admin login first
+
+fetch('http://localhost:5001/api/admin/leaderboard/monthly/update', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  credentials: 'include',
+  body: JSON.stringify({
+    member_id: 1, // change to the member ID you want
+    sessions_attended: 20,
+    assessments_submitted: 8,
+    bonus_points: 15
+  })
+})
+.then(res => res.json())
+.then(data => console.log('Update Monthly Leaderboard:', data));
+
+
+// Admin Logout
+
+fetch('http://localhost:5001/api/auth/logout', {
+  method: 'POST',
+  credentials: 'include'
+})
+.then(res => res.json())
+.then(data => console.log('Logout Response:', data));

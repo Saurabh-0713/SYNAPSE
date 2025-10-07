@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SYNAPSE - Machine Learning Club of IIIT Manipur. Learn, build, and explore AI with us.">
+  <meta name="author" content="SYNAPSE ML Club">
+  <meta name="keywords" content="AI, Machine Learning, Data Science, IIIT Manipur, Programming, Python">
+  <title>SYNAPSE | AI | ML | DS</title>
+  
+  <link rel="icon" type="image/png" href="assets/synapse.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Fixed Navbar -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <h1 class="logo">SYNAPSE CLUB</h1>
+    <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <i class="fas fa-bars"></i>
+    </button>
+    <ul class="nav-menu">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#leaderboard">Leaderboard</a></li>
+      <li><a href="#events">Calendar</a></li>
+      <li><a href="#notes">Notes</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <h1>Welcome to SYNAPSE - IIITM</h1>
+      <h2>Explore Artificial Intelligence, Machine Learning and Data Science</h2>
+      <p>Innovate beyond Boundaries</p>
+      <div class="hero-cta">
+        <a href="#events" class="cta-button">View Events</a>
+      </div>
+    </div>
+
+    <div class="hero-canvas-container">
+      <div id="neuron-canvas">
+        <div class="loading-text">
+          <div>Loading 3D Visualization...</div>
+          <div class="loading-spinner"></div>
+        </div>
+      </div>
+      <p class="credit">
+        <a href="https://skfb.ly/oyUVY" target="_blank" rel="noopener noreferrer">"Neuron"</a> by mmarynguyen is licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-NonCommercial</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="section" aria-labelledby="team-title">
+    <div class="container">
+      <h2 id="team-title" class="section-title">Meet Our Team</h2>
+      <p class="section-subtitle">The minds behind Synapse Club</p>
+      
+      <div class="team-grid">
+        <!-- Lead -->
+        <div class="team-card">
+          <div class="team-image-wrapper">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQEy2UOKw8Mp-Q/profile-displayphoto-shrink_800_800/B4DZSny8snG4Ag-/0/1737981939854?e=1762387200&v=beta&t=PzS3v2Sqy-PedGvRlpOVppDIMJpz97zdu3C9vnBgNQ0" alt="Shivam Kumar" class="team-image" loading="lazy">
+            <div class="team-badge">Lead</div>
+          </div>
+          <div class="team-content">
+            <h3>Shivam Kumar</h3>
+            <p class="team-role">Club Lead</p>
+            <p class="team-bio">Leads the Synapse Club's AI/ML/DS vision with a passion for Generative AI and hands-on learning. Currently interning as a GenAI Engineer at Zensar Technologies, empowering peers to explore cutting-edge AI solutions.</p>
+            <div class="team-social">
+              <a href="https://www.linkedin.com/in/shivam-kumar-574600144" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Co-Lead -->
+        <div class="team-card">
+          <div class="team-image-wrapper">
+            <img src="/assets/saur.jpg" alt="Saurabh Sati" class="team-image" loading="lazy">
+            <div class="team-badge">Co-Lead</div>
+          </div>
+          <div class="team-content">
+            <h3>Saurabh Sati</h3>
+            <p class="team-role">Club Co-Lead</p>
+            <p class="team-bio">Co-leads the Synapse Club's AI/ML/DS initiatives with a passion for bridging theory and real-world impact. Deeply interested in Machine Learning, Deep Learning, and the mathematics that power them, he focuses on building intelligent solutions driven by curiosity and innovation.</p>
+            <div class="team-social">
+              <a href="https://www.linkedin.com/in/saurabh-sati-709b09313" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coordinator -->
+        <div class="team-card">
+          <div class="team-image-wrapper">
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQHstvij-BI0Ow/profile-displayphoto-shrink_800_800/B4DZVQkmsIHwAc-/0/1740813531243?e=1762387200&v=beta&t=7iYqSLc1MlvNZGBD35wUPXZATu3gHHidPaUQkhqABVI" alt="Kavyaa Purohit" class="team-image" loading="lazy">
+            <div class="team-badge">Co-Lead</div>
+          </div>
+          <div class="team-content">
+            <h3>Kavyaa Purohit</h3>
+            <p class="team-role">Club Co-Lead</p>
+            <p class="team-bio">Co-Leads the Synapse Club's AI/ML/DS initiatives  with her Tech Expertise ,Managing communications , and community engagement, Kavyaa keeps everyone connected. She also coordinates events and maintains strong relationships with members and partners.</p>
+            <div class="team-social">
+              <a href="https://www.linkedin.com/in/kavyaa-purohit-630202338" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leaderboard Section -->
+  <section id="leaderboard" class="section" aria-labelledby="leaderboard-title">
+    <div class="container">
+      <h2 id="leaderboard-title" class="section-title">SYNAPSE Leaderboard</h2>
+      <p class="section-subtitle">Top performers based on sessions attended and assessments submitted</p>
+      
+      <div class="leaderboard-container">
+        <!-- Weekly Leaderboard -->
+        <div class="leaderboard-panel">
+          <div class="panel-header">
+            <i class="fas fa-calendar-week panel-icon"></i>
+            <h3 class="panel-title">Weekly Leaderboard</h3>
+          </div>
+          
+          <div class="leaderboard-list" id="weeklyLeaderboard">
+            <!-- Will be populated by JavaScript -->
+          </div>
+          
+          <div class="panel-footer">
+            <p class="update-time">Updated: <span id="weeklyUpdate">Just now</span></p>
+          </div>
+        </div>
+
+        <!-- Monthly Leaderboard -->
+        <div class="leaderboard-panel">
+          <div class="panel-header">
+            <i class="fas fa-calendar-alt panel-icon"></i>
+            <h3 class="panel-title">Monthly Leaderboard</h3>
+          </div>
+          
+          <div class="leaderboard-list" id="monthlyLeaderboard">
+            <!-- Will be populated by JavaScript -->
+          </div>
+          
+          <div class="panel-footer">
+            <p class="update-time">Updated: <span id="monthlyUpdate">Just now</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Points Legend -->
+      <div class="points-legend">
+        <h3 class="legend-title">Points System</h3>
+        <div class="legend-grid">
+          <div class="legend-item">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>Session Attended: <strong>10 points</strong></span>
+          </div>
+          <div class="legend-item">
+            <i class="fas fa-clipboard-check"></i>
+            <span>Assessment Submitted: <strong>20 points</strong></span>
+          </div>
+          <div class="legend-item">
+            <i class="fas fa-trophy"></i>
+            <span>Bonus Achievement: <strong>15 points</strong></span>
+          </div>
+          <div class="legend-item">
+            <i class="fas fa-star"></i>
+            <span>Perfect Attendance: <strong>50 points</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events" class="section" aria-labelledby="events-title">
+    <div class="container">
+      <h2 id="events-title" class="section-title">Upcoming Month Event Calendar</h2>
+      <p class="section-subtitle">Join us for workshops, hackathons, and talks</p>
+      
+      <div class="events-grid">
+        <div class="event-card">
+          <div class="event-date">
+            <span class="day">12</span>
+            <span class="month">OCT</span>
+          </div>
+          <div class="event-content">
+            <h3>Data Structures in Python</h3>
+            <p class="event-time">🕐 Time: Will be shared</p>
+            <p class="event-location">📍 Venue: Will be shared</p>
+            <p class="event-description">Learn different types of data structures in Python and their practical applications.</p>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-date">
+            <span class="day">14</span>
+            <span class="month">OCT</span>
+          </div>
+          <div class="event-content">
+            <h3>Functions in Python</h3>
+            <p class="event-time">🕐 Time: Will be shared</p>
+            <p class="event-location">📍 Venue: Will be shared</p>
+            <p class="event-description">Understanding function definitions in Python and when to use functions effectively.</p>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-date">
+            <span class="day">16</span>
+            <span class="month">OCT</span>
+          </div>
+          <div class="event-content">
+            <h3>Hands-on with Python Programming</h3>
+            <p class="event-time">🕐 Time: Will be shared</p>
+            <p class="event-location">📍 Venue: Will be shared</p>
+            <p class="event-description">Practical session with Python programming and various practice programs.</p>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-date">
+            <span class="day">19</span>
+            <span class="month">OCT</span>
+          </div>
+          <div class="event-content">
+            <h3>Connecting Python with Front-End</h3>
+            <p class="event-time">🕐 Time: Will be shared</p>
+            <p class="event-location">📍 Venue: Will be shared</p>
+            <p class="event-description">Learn how to integrate Python with front-end for web development.</p>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-date">
+            <span class="day">22</span>
+            <span class="month">OCT</span>
+          </div>
+          <div class="event-content">
+            <h3>Python with Databases</h3>
+            <p class="event-time">🕐 Time: Will be shared</p>
+            <p class="event-location">📍 Venue: Will be shared</p>
+            <p class="event-description">Discover how to integrate Python with various databases.</p>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-date">
+            <span class="day">23</span>
+            <span class="month">OCT</span>
+          </div>
+          <div class="event-content">
+            <h3>AI Prompting Techniques</h3>
+            <p class="event-time">🕐 Time: Will be shared</p>
+            <p class="event-location">📍 Venue: Will be shared</p>
+            <p class="event-description">Special session on effective prompting strategies for AI tools.</p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <div class="event-date">
+            <span class="day">24</span>
+            <span class="month">OCT</span>
+          </div>
+          <div class="event-content">
+            <h3>Intro to Machine Learning</h3>
+            <p class="event-time">🕐 Time: Will be shared</p>
+            <p class="event-location">📍 Venue: Will be shared</p>
+            <p class="event-description">What is Machine Learning? Understanding the fundamentals and hype.</p>
+          </div>
+        </div>
+        
+        <div class="event-card">
+          <div class="event-date">
+            <span class="day">28</span>
+            <span class="month">OCT</span>
+          </div>
+          <div class="event-content">
+            <h3>Hackathon / Contest</h3>
+            <p class="event-time">🕐 Time: Will be shared</p>
+            <p class="event-location">📍 Venue: Will be shared</p>
+            <p class="event-description">Test your skills in a hackathon based on concepts learned throughout the month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notes Section -->
+  <section id="notes" class="section" aria-labelledby="notes-title">
+    <div class="container">
+      <h2 id="notes-title" class="section-title">Session Notes</h2>
+      <p class="section-subtitle">Study materials and resources from our sessions</p>
+      
+      <div class="coming-soon-container">
+        <div class="coming-soon-icon">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <h3 class="coming-soon-title">Coming Soon</h3>
+        <p class="coming-soon-text">We're preparing comprehensive notes and study materials from all our sessions. Check back soon!</p>
+        <div class="coming-soon-features">
+          <div class="feature-item">
+            <i class="fas fa-file-pdf"></i>
+            <span>PDF Notes</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-code"></i>
+            <span>Code Snippets</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-video"></i>
+            <span>Video Recordings</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section id="resources" class="section" aria-labelledby="resources-title">
+    <div class="container">
+      <h2 id="resources-title" class="section-title">Learning Resources</h2>
+      <p class="section-subtitle">Curated resources to accelerate your AI/ML/DS journey</p>
+      
+      <div class="resources-tabs">
+        <button class="resource-tab active" data-category="ai">
+          <i class="fas fa-brain"></i>
+          Artificial Intelligence
+        </button>
+        <button class="resource-tab" data-category="ml">
+          <i class="fas fa-robot"></i>
+          Machine Learning
+        </button>
+        <button class="resource-tab" data-category="ds">
+          <i class="fas fa-chart-line"></i>
+          Data Science
+        </button>
+      </div>
+
+      <!-- AI Resources -->
+      <div class="resources-content active" data-content="ai">
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Online Courses</h3>
+            <ul class="resource-list">
+              <li><a href="https://www.deeplearning.ai/" target="_blank" rel="noopener noreferrer">DeepLearning.AI - Andrew Ng's AI Courses</a></li>
+              <li><a href="https://www.fast.ai/" target="_blank" rel="noopener noreferrer">Fast.ai - Practical Deep Learning</a></li>
+              <li><a href="https://www.coursera.org/specializations/deep-learning" target="_blank" rel="noopener noreferrer">Deep Learning Specialization</a></li>
+              <li><a href="https://www.elementsofai.com/" target="_blank" rel="noopener noreferrer">Elements of AI - Free Course</a></li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h3>Books & Papers</h3>
+            <ul class="resource-list">
+              <li><a href="https://www.deeplearningbook.org/" target="_blank" rel="noopener noreferrer">Deep Learning - Ian Goodfellow</a></li>
+              <li><a href="http://neuralnetworksanddeeplearning.com/" target="_blank" rel="noopener noreferrer">Neural Networks and Deep Learning</a></li>
+              <li><a href="https://arxiv.org/" target="_blank" rel="noopener noreferrer">arXiv - AI Research Papers</a></li>
+              <li><a href="https://distill.pub/" target="_blank" rel="noopener noreferrer">Distill - ML Research</a></li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Tools & Frameworks</h3>
+            <ul class="resource-list">
+              <li><a href="https://www.tensorflow.org/" target="_blank" rel="noopener noreferrer">TensorFlow</a></li>
+              <li><a href="https://pytorch.org/" target="_blank" rel="noopener noreferrer">PyTorch</a></li>
+              <li><a href="https://huggingface.co/" target="_blank" rel="noopener noreferrer">Hugging Face - NLP Models</a></li>
+              <li><a href="https://openai.com/" target="_blank" rel="noopener noreferrer">OpenAI Platform</a></li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Practice Platforms</h3>
+            <ul class="resource-list">
+              <li><a href="https://www.kaggle.com/" target="_blank" rel="noopener noreferrer">Kaggle - Competitions & Datasets</a></li>
+              <li><a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer">Google Colab - Free GPU</a></li>
+              <li><a href="https://paperswithcode.com/" target="_blank" rel="noopener noreferrer">Papers with Code</a></li>
+              <li><a href="https://www.datacamp.com/" target="_blank" rel="noopener noreferrer">DataCamp</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ML Resources -->
+      <div class="resources-content" data-content="ml">
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Online Courses</h3>
+            <ul class="resource-list">
+              <li><a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="noopener noreferrer">Machine Learning - Andrew Ng</a></li>
+              <li><a href="https://www.udacity.com/course/intro-to-machine-learning--ud120" target="_blank" rel="noopener noreferrer">Udacity - Intro to ML</a></li>
+              <li><a href="https://developers.google.com/machine-learning/crash-course" target="_blank" rel="noopener noreferrer">Google's ML Crash Course</a></li>
+              <li><a href="https://www.edx.org/learn/machine-learning" target="_blank" rel="noopener noreferrer">edX - Machine Learning Courses</a></li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h3>Books & Documentation</h3>
+            <ul class="resource-list">
+              <li><a href="https://www.statlearning.com/" target="_blank" rel="noopener noreferrer">Introduction to Statistical Learning</a></li>
+              <li><a href="https://scikit-learn.org/stable/tutorial/index.html" target="_blank" rel="noopener noreferrer">Scikit-learn Documentation</a></li>
+              <li><a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/" target="_blank" rel="noopener noreferrer">Hands-On Machine Learning</a></li>
+              <li><a href="https://mml-book.github.io/" target="_blank" rel="noopener noreferrer">Mathematics for Machine Learning</a></li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Libraries & Tools</h3>
+            <ul class="resource-list">
+              <li><a href="https://scikit-learn.org/" target="_blank" rel="noopener noreferrer">Scikit-learn</a></li>
+              <li><a href="https://xgboost.readthedocs.io/" target="_blank" rel="noopener noreferrer">XGBoost</a></li>
+              <li><a href="https://catboost.ai/" target="_blank" rel="noopener noreferrer">CatBoost</a></li>
+              <li><a href="https://mlflow.org/" target="_blank" rel="noopener noreferrer">MLflow - ML Lifecycle</a></li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Practice & Competitions</h3>
+            <ul class="resource-list">
+              <li><a href="https://www.kaggle.com/competitions" target="_blank" rel="noopener noreferrer">Kaggle Competitions</a></li>
+              <li><a href="https://www.hackerrank.com/domains/ai" target="_blank" rel="noopener noreferrer">HackerRank - AI Challenges</a></li>
+              <li><a href="https://www.analyticsvidhya.com/datahack/" target="_blank" rel="noopener noreferrer">Analytics Vidhya - DataHack</a></li>
+              <li><a href="https://zindi.africa/" target="_blank" rel="noopener noreferrer">Zindi - Africa's ML Platform</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- DS Resources -->
+      <div class="resources-content" data-content="ds">
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Online Courses</h3>
+            <ul class="resource-list">
+              <li><a href="https://www.coursera.org/professional-certificates/ibm-data-science" target="_blank" rel="noopener noreferrer">IBM Data Science Professional</a></li>
+              <li><a href="https://www.datacamp.com/tracks/data-scientist-with-python" target="_blank" rel="noopener noreferrer">DataCamp - Data Scientist Track</a></li>
+              <li><a href="https://www.edx.org/professional-certificate/harvardx-data-science" target="_blank" rel="noopener noreferrer">Harvard Data Science Certificate</a></li>
+              <li><a href="https://www.udemy.com/topic/data-science/" target="_blank" rel="noopener noreferrer">Udemy - Data Science Courses</a></li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-book"></i>
+            </div>
+            <h3>Books & Tutorials</h3>
+            <ul class="resource-list">
+              <li><a href="https://r4ds.had.co.nz/" target="_blank" rel="noopener noreferrer">R for Data Science</a></li>
+              <li><a href="https://wesmckinney.com/book/" target="_blank" rel="noopener noreferrer">Python for Data Analysis</a></li>
+              <li><a href="https://www.storytellingwithdata.com/" target="_blank" rel="noopener noreferrer">Storytelling with Data</a></li>
+              <li><a href="https://jakevdp.github.io/PythonDataScienceHandbook/" target="_blank" rel="noopener noreferrer">Python Data Science Handbook</a></li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Libraries & Tools</h3>
+            <ul class="resource-list">
+              <li><a href="https://pandas.pydata.org/" target="_blank" rel="noopener noreferrer">Pandas - Data Manipulation</a></li>
+              <li><a href="https://numpy.org/" target="_blank" rel="noopener noreferrer">NumPy - Numerical Computing</a></li>
+              <li><a href="https://matplotlib.org/" target="_blank" rel="noopener noreferrer">Matplotlib - Visualization</a></li>
+              <li><a href="https://plotly.com/" target="_blank" rel="noopener noreferrer">Plotly - Interactive Charts</a></li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h3>Datasets & Communities</h3>
+            <ul class="resource-list">
+              <li><a href="https://www.kaggle.com/datasets" target="_blank" rel="noopener noreferrer">Kaggle Datasets</a></li>
+              <li><a href="https://data.gov.in/" target="_blank" rel="noopener noreferrer">Open Government Data India</a></li>
+              <li><a href="https://archive.ics.uci.edu/ml/index.php" target="_blank" rel="noopener noreferrer">UCI Machine Learning Repository</a></li>
+              <li><a href="https://datasetsearch.research.google.com/" target="_blank" rel="noopener noreferrer">Google Dataset Search</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <!-- Social Links -->
+    <div class="social-links-container">
+      <div class="social-links">
+        <a href="https://www.linkedin.com/company/synapse-iiit-m/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Copyright Line -->
+    <div class="footer-bottom">
+      <p>
+        Copyright © <span id="currentYear"></span> - All rights reserved by 
+        <span style="color: #ff642ce1;">Synapse Club, IIIT Manipur.</span>
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+  <script>
+    // Set current year dynamically
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
